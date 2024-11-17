@@ -25,24 +25,24 @@ def eval_post(post: str, expected_answer: tuple[bool, str]):
     assert similarity >= 0.6
 
 
-def test_non_english1():
+def test_non_english01():
     eval_post("Hier ist dein erstes Beispiel.", (False, "Here is your first example."))
 
 
-def test_non_english2():
+def test_non_english02():
     eval_post(
         "बहुत से लोग नाश्ते में अनाज खाते हैं।", (False, "Many people eat cereal for breakfast.")
     )
 
 
-def test_non_english3():
+def test_non_english03():
     eval_post(
         "Υπάρχουν πολλά διαφορετικά είδη ζώων που ζουν στην Κίνα.",
         (False, "There are many different kinds of animals that live in China."),
     )
 
 
-def test_non_english4():
+def test_non_english04():
     eval_post(
         "Anlamadığınız terim veya kavramlarla karşılaşırsanız anlamlarını açıklığa kavuşturmak için bir sözlüğe veya ek kaynaklara başvurun.",
         (
@@ -52,25 +52,25 @@ def test_non_english4():
     )
 
 
-def test_non_english5():
+def test_non_english05():
     eval_post("ตอนนี้มีหมึกสีดำอยู่ในปากกา", (False, "There is now black ink in the pen."))
 
 
-def test_non_english6():
+def test_non_english06():
     eval_post(
         "No tengo dinero para hacer nada ahora.",
         (False, "I don't have the money to do anything right now."),
     )
 
 
-def test_non_english7():
+def test_non_english07():
     eval_post(
         "Bomull har vackra vita och röda blommor.",
         (False, "Cotton has beautiful white and red flowers."),
     )
 
 
-def test_non_english8():
+def test_non_english08():
     eval_post(
         "あなたはアメリカに来て貧しいかもしれませんが、一生懸命働けば、子供たちはより良い生活とより良い機会を得ることができます。",
         (
@@ -80,7 +80,7 @@ def test_non_english8():
     )
 
 
-def test_non_english9():
+def test_non_english09():
     eval_post(
         "Le piramidi furono costruite sia per regine che per re, e la posizione delle regine era leggermente inferiore a quella dei loro consorti, anche se, per quanto riguarda le rappresentazioni monumentali, davano sempre la precedenza a questi ultimi.",
         (
@@ -134,125 +134,125 @@ def test_non_english15():
     )
 
 
-def test_english16():
+def test_english01():
     eval_post(
         "The quick brown fox jumps over the lazy dog.",
         (True, "The quick brown fox jumps over the lazy dog."),
     )
 
 
-def test_english17():
+def test_english02():
     eval_post(
         "She sells seashells by the seashore.",
         (True, "She sells seashells by the seashore."),
     )
 
 
-def test_english18():
+def test_english03():
     eval_post(
         "To be or not to be, that is the question.",
         (True, "To be or not to be, that is the question."),
     )
 
 
-def test_english19():
+def test_english04():
     eval_post(
         "All that glitters is not gold.", (True, "All that glitters is not gold.")
     )
 
 
-def test_english20():
+def test_english05():
     eval_post(
         "A journey of a thousand miles begins with a single step.",
         (True, "A journey of a thousand miles begins with a single step."),
     )
 
 
-def test_english21():
+def test_english06():
     eval_post("Better late than never.", (True, "Better late than never."))
 
 
-def test_english22():
+def test_english07():
     eval_post(
         "Actions speak louder than words.", (True, "Actions speak louder than words.")
     )
 
 
-def test_english23():
+def test_english08():
     eval_post(
         "The pen is mightier than the sword.",
         (True, "The pen is mightier than the sword."),
     )
 
 
-def test_english24():
+def test_english09():
     eval_post(
         "When in Rome, do as the Romans do.",
         (True, "When in Rome, do as the Romans do."),
     )
 
 
-def test_english25():
+def test_english10():
     eval_post(
         "The early bird catches the worm.", (True, "The early bird catches the worm.")
     )
 
 
-def test_english26():
+def test_english11():
     eval_post(
         "A picture is worth a thousand words.",
         (True, "A picture is worth a thousand words."),
     )
 
 
-def test_english27():
+def test_english12():
     eval_post(
         "Beauty is in the eye of the beholder.",
         (True, "Beauty is in the eye of the beholder."),
     )
 
 
-def test_english28():
+def test_english13():
     eval_post(
         "You can't judge a book by its cover.",
         (True, "You can't judge a book by its cover."),
     )
 
 
-def test_english29():
+def test_english14():
     eval_post(
         "The grass is always greener on the other side.",
         (True, "The grass is always greener on the other side."),
     )
 
 
-def test_english30():
+def test_english15():
     eval_post(
         "Don't count your chickens before they hatch.",
         (True, "Don't count your chickens before they hatch."),
     )
 
 
-def test_gibberish31():
+def test_gibberish01():
     eval_post("asdkjfhaskjdfh", (False, "LLM error: cannot translate content."))
 
 
-def test_gibberish32():
+def test_gibberish02():
     eval_post("123abc!@#", (False, "LLM error: cannot translate content."))
 
 
-def test_gibberish33():
+def test_gibberish03():
     eval_post("!@#$%^&*()", (False, "LLM error: cannot translate content."))
 
 
-def test_gibberish34():
+def test_gibberish04():
     eval_post(
         "zzzzzzzzzzeeeeeeeeeeeeeeeeeeeeeee",
         (False, "LLM error: cannot translate content."),
     )
 
 
-def test_gibberish35():
+def test_gibberish05():
     eval_post(
         "qwertyuiopasdfghjklzxcvbnm", (False, "LLM error: cannot translate content.")
     )
