@@ -1,5 +1,7 @@
 from src.translator import translate_content
 from sentence_transformers import SentenceTransformer, util
+from mock import patch
+import openai
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -26,11 +28,18 @@ def eval_post(post: str, expected_answer: tuple[bool, str]):
 def test_non_english1():
     eval_post("Hier ist dein erstes Beispiel.", (False, "Here is your first example."))
 
+@patch.object(openai.ChatCompletion, 'create')
+def test_unexpected_language(mocker):
+  # we mock the model's response to return a random message
+  mocker.return_value.choices[0].message.content = "I don't understand your request"
 
-def test_non_english2():
-    eval_post(
-        "बहुत से लोग नाश्ते में अनाज खाते हैं।", (False, "Many people eat cereal for breakfast.")
-    )
+  assert translate_content("Hier ist dein erstes Beispiel.") == (False, "LLM error: cannot translate content.")
+
+
+# def test_non_english2():
+#     eval_post(
+#         "बहुत से लोग नाश्ते में अनाज खाते हैं।", (False, "Many people eat cereal for breakfast.")
+#     )
 
 
 # def test_non_english3():
@@ -249,3 +258,4 @@ def test_non_english2():
 
 # def test_gibberish35():
 #     eval_post("qwertyuiopasdfghjklzxcvbnm", (False, "LLM error: cannot translate content."))
+

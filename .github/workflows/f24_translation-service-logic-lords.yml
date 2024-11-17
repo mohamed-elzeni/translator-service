@@ -30,6 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
              pip install -r requirements.txt
+             pip install --quiet pytest ipytest pytest-mock mock
              pip install sentence_transformers==3.3.0
         
       - name: Run translation tests
