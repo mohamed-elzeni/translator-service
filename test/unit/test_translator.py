@@ -232,20 +232,20 @@ def test_english30():
 
 
 def test_gibberish31():
-    eval_post("asdkjfhaskjdfh", (False, ""))
+    eval_post("asdkjfhaskjdfh", (False, "LLM error: cannot translate content."))
 
 
 def test_gibberish32():
-    eval_post("123abc!@#", (False, ""))
+    eval_post("123abc!@#", (False, "LLM error: cannot translate content."))
 
 
 def test_gibberish33():
-    eval_post("!@#$%^&*()", (False, ""))
+    eval_post("!@#$%^&*()", (False, "LLM error: cannot translate content."))
 
 
 def test_gibberish34():
-    eval_post("zzzzzzzzzzeeeeeeeeeeeeeeeeeeeeeee", (False, ""))
+    eval_post("zzzzzzzzzzeeeeeeeeeeeeeeeeeeeeeee", (False, "LLM error: cannot translate content."))
 
 
 def test_gibberish35():
-    eval_post("qwertyuiopasdfghjklzxcvbnm", (False, ""))
+    eval_post("qwertyuiopasdfghjklzxcvbnm", (False, "LLM error: cannot translate content."))
