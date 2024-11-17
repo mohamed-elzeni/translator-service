@@ -31,6 +31,9 @@ jobs:
         run: |
              pip install -r requirements.txt
              pip install sentence_transformers==3.3.0
+
+      - name: Print
+        run: echo $OPENAI_API_KEY
         
       - name: Run translation tests
         run: pytest
