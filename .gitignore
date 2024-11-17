@@ -146,6 +146,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# macos
+.DS_Store
+
 # pytype static type analyzer
 .pytype/
 
